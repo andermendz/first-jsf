@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+             <p:panelGrid columns="2">
+                    <p:panel header="Listado de Asociados">
+                        
+                    <p:dataTable var="a" value="#{asociadoController.asociados}">
+                        <p:column headerText="ID">
+                            #{a.id}
+                        </p:column>
+                        <p:column headerText="Nombre">
+                            #{a.nombre}
+                        </p:column>
+                        <p:column headerText="Apellido">
+                            #{a.apellido}
+                        </p:column>
+                        <p:column headerText="Tiempo de Asociado(Años)">
+                            #{a.tiempo}
+                        </p:column>
+                         <p:column headerText="Salario">
+                            #{a.salario}
+                        </p:column>
+                     
+                        <p:column headerText="Monto a prestar">
+                            <h:commandButton action="#{asociadoController.consultar(a)}" value = "CONSULTAR" style="width: 150px;height: 30px" />
+                        </p:column>
+                    </p:dataTable>
+
+             
+                        </p:panel>
+                </p:panelGrid>
+
+            <p:panelGrid columns="1">
+                <p:panel header="MONTO DISPONIBLE PARA PRESTAR" >       
+                        
+                        
+                      <p:dataTable var="ac" value="#{asociadoController.asociadosc}">
+                          
+                          <p:column headerText="ID">
+                            #{ac.id}
+                            </p:column>
+                        <p:column headerText="Empleado">
+                            #{ac.nombre} #{a.apellido} 
+                            </p:column>
+                        <p:column headerText="Especial">
+                            #{ac.espc}
+                        </p:column>
+                        <p:column headerText="Institucional">
+                            #{ac.insti}
+                        </p:column>
+                        <p:column headerText="Presta YA">
+                            #{ac.prestaya}
+                        </p:column>
+                        
+                    </p:dataTable>
+                        
+                    
+
+                </p:panel> 
+               
+                
+            </p:panelGrid>
+        </h:form>
+
+    </h:body>
+</html>
+
